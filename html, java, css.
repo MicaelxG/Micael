@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornada de Aventura</title>
+    <style>
+        :root {
+            --cor-principal: #0B0D20;
+            --cor-secundaria: #212333; 
+            --cor-destaque: #2BDEFD;
+            --cor-texto: #D7F9FF;
+        }
+
+        body {
+            background-image: url('https://img.elo7.com.br/product/zoom/1017C87/painel-mapa-tesouro-g-frete-gratis-festa-infantil.jpg');
+            background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            color: var(--cor-principal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .caixa-principal {
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--cor-destaque);
+        }
+
+        button {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-texto);
+            border: none;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--cor-destaque);
+            color: var(--cor-principal);
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa-principal">
+        <h1>Jornada de Aventura</h1>
+        <div class="caixa-perguntas"></div>
+        <div class="caixa-alternativas"></div>
+        <div class="caixa-resultado">
+            <p class="texto-resultado"></p>
+        </div>
+    </div>
+    <script>
+        const caixaPrincipal = document.querySelector(".caixa-principal");
+        const caixaPerguntas = document.querySelector(".caixa-perguntas");
+        const caixaAlternativas = document.querySelector(".caixa-alternativas");
+        const caixaResultado = document.querySelector(".caixa-resultado");
+        const textoResultado = document.querySelector(".texto-resultado");
+
+        const perguntas = [
+            {
+                enunciado: "Você está em uma floresta e encontra um mapa antigo. O que você faz?",
+                alternativas: [
+                    {
+                        texto: "Decido seguir o mapa em busca do tesouro.",
+                        afirmacao: "Você sente a adrenalina da aventura."
+                    },
+                    {
+                        texto: "Levo o mapa para um especialista analisar.",
+                        afirmacao: "Você prefere ser cauteloso e buscar ajuda."
+                    }
+                ]
+            },
+            {
+                enunciado: "Durante a jornada, você encontra um rio. Como você atravessa?",
+                alternativas: [
+                    {
+                        texto: "Construo uma jangada com troncos.",
+                        afirmacao: "Você é engenhoso e se adapta ao ambiente."
+                    },
+                    {
+                        texto: "Procuro uma passagem mais estreita para atravessar a pé.",
+                        afirmacao: "Você é cuidadoso e evita riscos desnecessários."
+                    }
+                ]
+            },
+            {
+                enunciado: "Você se depara com uma caverna escura. O que faz?",
+                alternativas: [
+                    {
+                        texto: "Entro na caverna para explorar.",
+                        afirmacao: "A curiosidade te impulsiona."
+                    },
+                    {
+                        texto: "Decido dar a volta e continuar o caminho.",
+                        afirmacao: "Você valoriza a segurança acima de tudo."
+                    }
+                ]
+            },
+            {
+                enunciado: "Você encontra um animal ferido no caminho. O que você faz?",
+                alternativas: [
+                    {
+                        texto: "Tento ajudar o animal.",
+                        afirmacao: "Sua compaixão é admirável."
+                    },
+                    {
+                        texto: "Continuo meu caminho, pois estou com pressa.",
+                        afirmacao: "Você sabe que precisa focar na sua missão."
+                    }
+                ]
+            },
+            {
+                enunciado: "Finalmente, você encontra o tesouro. O que você faz com ele?",
+                alternativas: [
+                    {
+                        texto: "Divido o tesouro com aqueles que me ajudaram.",
+                        afirmacao: "Você é generoso e valoriza a amizade."
+                    },
+                    {
+                        texto: "Guardo tudo para mim e volto para casa.",
+                        afirmacao: "Você prefere aproveitar a recompensa sozinho."
+                    }
+                ]
+            },
+        ];
+
+        let atual = 0;
+        let perguntaAtual;
+        let historiaFinal = "";
+
+        function mostraPergunta() {
+            if (atual >= perguntas.length) {
+                mostraResultado();
+                return;
+            }
+            perguntaAtual = perguntas[atual];
+            caixaPerguntas.textContent = perguntaAtual.enunciado;
+            caixaAlternativas.textContent = "";
+            mostraAlternativas();
+        }
+
+        function mostraAlternativas() {
+            for (const alternativa of perguntaAtual.alternativas) {
+                const botaoAlternativas = document.createElement("button");
+                botaoAlternativas.textContent = alternativa.texto;
+                botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+                caixaAlternativas.appendChild(botaoAlternativas);
+            }
+        }
+
+        function respostaSelecionada(opcaoSelecionada) {
+            const afirmacoes = opcaoSelecionada.afirmacao;
+            historiaFinal += afirmacoes + " ";
+            atual++;<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornada de Aventura</title>
+    <style>
+        :root {
+            --cor-principal: #0B0D20;
+            --cor-secundaria: #212333; 
+            --cor-destaque: #2BDEFD;
+            --cor-texto: #D7F9FF;
+        }
+
+        body {
+            background-image: url('https://img.elo7.com.br/product/zoom/1017C87/painel-mapa-tesouro-g-frete-gratis-festa-infantil.jpg');
+            background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            color: var(--cor-principal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .caixa-principal {
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--cor-destaque);
+        }
+
+        button {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-texto);
+            border: none;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--cor-destaque);
+            color: var(--cor-principal);
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa-principal">
+        <h1>Jornada de Aventura</h1>
+        <div class="caixa-perguntas"></div>
+        <div class="caixa-alternativas"></div>
+        <div class="caixa-resultado">
+            <p class="texto-resultado"></p>
+        </div>
+    </div>
+    <script>
+        const caixaPrincipal = document.querySelector(".caixa-principal");
+        const caixaPerguntas = document.querySelector(".caixa-perguntas");
+        const caixaAlternativas = document.querySelector(".caixa-alternativas");
+        const caixaResultado = document.querySelector(".caixa-resultado");
+        const textoResultado = document.querySelector(".texto-resultado");
+
+        const perguntas = [
+            {
+                enunciado: "Você está em uma floresta e encontra um mapa antigo. O que você faz?",
+                alternativas: [
+                    {
+                        texto: "Decido seguir o mapa em busca do tesouro.",
+                        afirmacao: "Você sente a adrenalina da aventura."
+                    },
+                    {
+                        texto: "Levo o mapa para um especialista analisar.",
+                        afirmacao: "Você prefere ser cauteloso e buscar ajuda."
+                    }
+                ]
+            },
+            {
+                enunciado: "Durante a jornada, você encontra um rio. Como você atravessa?",
+                alternativas: [
+                    {
+                        texto: "Construo uma jangada com troncos.",
+                        afirmacao: "Você é engenhoso e se adapta ao ambiente."
+                    },
+                    {
+                        texto: "Procuro uma passagem mais estreita para atravessar a pé.",
+                        afirmacao: "Você é cuidadoso e evita riscos desnecessários."
+                    }
+                ]
+            },
+            {
+                enunciado: "Você se depara com uma caverna escura. O que faz?",
+                alternativas: [
+                    {
+                        texto: "Entro na caverna para explorar.",
+                        afirmacao: "A curiosidade te impulsiona."
+                    },
+                    {
+                        texto: "Decido dar a volta e continuar o caminho.",
+                        afirmacao: "Você valoriza a segurança acima de tudo."
+                    }
+                ]
+            },
+            {
+                enunciado: "Você encontra um animal ferido no caminho. O que você faz?",
+                alternativas: [
+                    {
+                        texto: "Tento ajudar o animal.",
+                        afirmacao: "Sua compaixão é admirável."
+                    },
+                    {
+                        texto: "Continuo meu caminho, pois estou com pressa.",
+                        afirmacao: "Você sabe que precisa focar na sua missão."
+                    }
+                ]
+            },
+            {
+                enunciado: "Finalmente, você encontra o tesouro. O que você faz com ele?",
+                alternativas: [
+                    {
+                        texto: "Divido o tesouro com aqueles que me ajudaram.",
+                        afirmacao: "Você é generoso e valoriza a amizade."
+                    },
+                    {
+                        texto: "Guardo tudo para mim e volto para casa.",
+                        afirmacao: "Você prefere aproveitar a recompensa sozinho."
+                    }
+                ]
+            },
+        ];
+
+        let atual = 0;
+        let perguntaAtual;
+        let historiaFinal = "";
+
+        function mostraPergunta() {
+            if (atual >= perguntas.length) {
+                mostraResultado();
+                return;
+            }
+            perguntaAtual = perguntas[atual];
+            caixaPerguntas.textContent = perguntaAtual.enunciado;
+            caixaAlternativas.textContent = "";
+            mostraAlternativas();
+        }
+
+        function mostraAlternativas() {
+            for (const alternativa of perguntaAtual.alternativas) {
+                const botaoAlternativas = document.createElement("button");
+                botaoAlternativas.textContent = alternativa.texto;
+                botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+                caixaAlternativas.appendChild(botaoAlternativas);
+            }
+        }
+
+        function respostaSelecionada(opcaoSelecionada) {
+            const afirmacoes = opcaoSelecionada.afirmacao;
+            historiaFinal += afirmacoes + " ";
+            atual++;
+            mostraPergunta();
+        }
+
+        function mostraResultado() {
+            caixaPerguntas.textContent = "Sua jornada chegou ao fim!";
+            textoResultado.textContent = historiaFinal;
+            caixaAlternativas.textContent = "";
+        }
+
+        mostraPergunta();
+    </script>
+</body>
+</html>
+            mostraPergunta();
+        }
+
+        function mostraResultado() {
+            caixaPerguntas.textContent = "Sua jornada chegou ao fim!";
+            textoResultado.textContent = historiaFinal;
+            caixaAlternativas.textContent = "";
+        }
+
+        mostraPergunta();
+    </script>
+</body>
+</html>
